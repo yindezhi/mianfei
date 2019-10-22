@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+}
+ ul{
+    list-style: none;
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid green;
+    text-align: center;
+}
+li{
+    font-size: 40px;
+    color: red;
+}
+/*
+li:nth-child(even){
+    background: chocolate;
+}
+li:nth-child(odd){
+    background: black;
+}
+li:hover{
+    background: cadetblue;
+} */
+
+</style>
+<body>
+
+    <div>
+        <!-- ul#box>li*5{$} -->
+        <ul id="box">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script>
+        // 通过ID获取页面中的元素获取不到就是null
+        let lists = document.querySelectorAll('#box li');//是一个类数组
+        
+        for(let i = 0;i<lists.length;i++){
+            console.log(lists[i]);
+            if(i%2 === 0){
+                lists[i].style.backgroundColor="orange"
+            }
+            else{
+                lists[i].style.backgroundColor="green"
+            }
+
+            lists[i].onmouseover = function(){
+                color = this.style.backgroundColor;
+                this.style.backgroundColor="red"
+            }
+            lists[i].onmouseout=function(){
+                this.style.backgroundColor = color
+            }
+        }
+    </script>
+</body>
+</html>
