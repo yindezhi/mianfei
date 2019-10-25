@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let ary = [1,2,3,4]
+        // console.log(ary.push(99,1,5,5,4));
+        // console.log(ary);
+
+
+        // let ary = [1,2,3,4]
+        // console.log(ary.unshift(7,8));
+        // console.log(ary);
+
+        // let ary = [1,2,3,4];
+        // console.log(ary.shift());
+        // console.log(ary);
+
+
+        //    let ary = [1,2,3,4];
+        //    console.log(ary.pop());
+        //    console.log(ary);
+
+        //  let ary = [1,25,31,45,67,2];
+        //  console.log(ary.sort((a,b)=>{
+        //             return b-a
+        //  }));
+        //  console.log(ary)
+
+        // let ary = ['w','e','r','t'];
+        // console.log(ary.forEach((item,index)=>{
+        //     console.log(item,index)
+        // }));
+        
+            let ary = [1,2,1,2,1,2,1,2,1,2,4,5,4,5,4,8,9,8,9];
+            let newAry = [];//创建一个新数组
+            //循环原数组的每一项
+            for(var i = 0;i<ary.length;i++){
+                let cur = ary[i];//当前项
+                //如果当前项在新数组里有了，那就不往新数组里添加了
+                if(newAry.includes(cur)){
+                    continue;//结束本轮循环
+                }
+                //往新数组里添加当前项
+                newAry.push(cur)
+            }
+            console.log(newAry)
+
+           
+           
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

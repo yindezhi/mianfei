@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+   <script>
+       let ary = [1,2,1,3,1,4,3,4,5,4,5,4]
+       // 循环数组的每一项
+       for (var i = 0; i < ary.length; i++) {
+           let cur = ary[i] // 当前项  1
+            // 这个循环就是当前项后面的每一项跟当前项做比较9
+           for(var j =i+1;j < ary.length;j++){
+               let item = ary[j] // 
+               // 如果当前项跟他后面的某一项相等了，把那一项从原数组中删除
+               if(cur === item){
+                   ary.splice(j,1);
+                   j--
+                }
+           }
+        }
+        console.log(ary);
+        
+     
+   </script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul id="box">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script>
+        //  通过Id获取页面中的元素获取不到就是null
+        
+        let lists = document.querySelectorAll('#box li');//获取ul下的所有li（是一个类数组）
+
+        let color = null;//用来保存li里的背景颜色
+        
+        for(let i=0;i<lists.length;i++){
+            console.log(lists[i])//lists代表当前项
+
+            // 当i是偶数的时候，对应的是奇数行（因为i是从0开始的）
+            if(i%2 === 0){
+                //奇数行
+                lists[i]
+                .style.backgroundColor="green"
+            }
+
+            lists[i].onmouseover=function(){
+                //this 代表你当前操作的那个元素
+
+                //把当前li的背景颜色赋值给color，保存起来
+                color = 
+                this.style.backgroundColor;
+
+                //在把li的背景颜色改为红色
+                this.style.
+                backgroundColor="red"
+            }
+            lists[i].onmouseout=function(){
+                //当鼠标离开这个li的时候再把color存的背景颜色还给他
+                this.style.backgroundColor
+                = color;
+            }
+        }
+
+    </script>
+</body>
+</html>
