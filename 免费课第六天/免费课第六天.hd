@@ -1,0 +1,109 @@
+# 函数
+
+    box.onclick = function(){
+        alert(1)
+    }
+
+    函数：(最大的用处就是复用) 重点、难点
+
+        难点：(参数、返回值)：
+             单拎出来简单，混合在一起就比较难了
+
+        函数声明：
+            当声明中有一个函数的时候，在虚拟空间中开辟了一个16进制的堆内存，并且把函数中的当做字符串储存在函数体内
+            再把这个16进制的地址赋值给函数名。
+
+        函数调用：
+
+            调用方式：
+               函数名 + 括号  fn（）
+               事件调用 box.onclick =
+               function(){}
+               定时器调用
+
+            在函数体内开辟了一个执行栈，
+            先形参赋值
+            变量提升
+            然后代码从上往下执行
+            执行栈销毁。
+
+        定义函数的方式：
+            1.函数声明
+                function fn(){}  在跟定义同域下，调用是不分位置的（可以在定义之前调用，也可以在定义之后调用）
+
+            2.函数表达式
+                let fn = function(){},调用只能在定义之后 ，不然报错
+
+            3.匿名函数
+                括号是有提权和表达式的意思在里面()
+
+                一般使用匿名函数自执行，匿名函数自执行前最好加分号，避免报错
+
+            4.箭头函数
+
+    ** let a = 5;
+    ;(function(){
+        console.log(1);
+    })(); **
+
+        // document.onclick = fn2(); // 用户还没点击，元素就调用了
+
+# 函数参数
+
+     形参：
+         形式上的参数，在**函数定义**的时候括号中的英文为**形参**（形式上的参数）
+
+         形参是可以添加默认值的
+             比如：
+                 function fn（b=2）{}
+
+        实参：
+            实际的参数，在**函数调用**的时候括号中的**任意数据**
+
+    function fn(a,b){//形参
+          console.log(a,b); //let a = 1
+    }
+    fn(1,2);//实参（实际的参数）
+
+    可以给形参赋值默认值
+      function fn（a=1）{
+          console.log(a);
+      }
+      fn(5);
+      回调地狱,回调函数,钩子函数,生命周期函数
+     function fn(a){
+         console.log(a);
+         a(function(a){
+            a(function(){
+                console.log(1)
+             });
+         });
+     }
+     fn(function(a){
+         a(function(a){
+             a(function(a){
+                 a();
+             });
+         });
+     });
+
+
+     function fn(a){
+         a(function(b){
+             b();
+         });
+     }
+     fn(function(b){
+         console.log('a');
+         b(function(){
+             console.log('b');
+         });
+     })
+
+    function fn(){
+        console.log(arguments)
+    }
+    fn(5,2,5,4,5,6,4,5,1,1,2);
+# arguments
+
+    函数体内有个**类数组**，名字叫arguments，这个arguments就为实参集合

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 递归
+        // 我要实现1~5之间所有能被2整除的数的和
+
+        // function sum(num) {
+        //         if(num>5){
+        //             return 0
+        //         }
+        //         if(num%2 === 0){
+        //             return num +sum(num+1)
+        //         }
+        //        return sum(num+1)
+        // }
+
+        // console.log(sum(1))
+
+
+        /*
+        function sum(1) {
+         return 6
+        }
+
+        function sum(2) {
+            return 2 +4
+  
+        }
+
+        function sum(3) {
+         return 4
+        }
+
+        function sum(4) {
+            return 4
+        
+        }
+
+        function sum(5) {
+          return 0
+        }
+
+        function sum(6) {
+            return 0
+        
+        }
+        */
+
+
+        // 快速排序
+        /**
+         * 1、原理
+         * 
+         * 1、把原数组分为3部分：两个数组，一个基准
+         * 2、以中间项为基础，把数组的每一项和基准做比较，如果小于基准，就把他放到左边的数组，反之，放到右边的数组
+         * 3、不断地执行1和2步骤（递归）直到被划分的数组的length小于等于1，就停止循环，
+         * 4、把所有数组和基准从左到右依次连接起来组成新数组，就是排好序的数组
+         * 
+         
+         * 
+         * ***/
+
+         var ary = [3,2,1]
+         function quick(ary) {
+             if(ary.length<=1){
+                 return ary
+             }
+             let centerIndex =  Math.floor(ary.length/2); // 获取中间项的索引
+             let centerValue = ary.splice(centerIndex, 1) // 删原数组中的中间项，并且拿到他
+            let leftAry = [];
+            let rightAey = [];
+             for(var i =0; i<ary.length;i++){
+                 var cur = ary[i];
+                 if(ary[i]<centerValue){
+                     leftAry.push(cur)
+                 }
+                 else {
+                     rightAey.push(cur)
+                 }
+             }
+             return quick(leftAry).concat(centerValue, quick(rightAey))
+
+             
+         }
+
+        console.log(quick(ary)) 
+    </script>
+</body>
+</html>

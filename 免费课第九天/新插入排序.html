@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var ary =[12,32,23,42,12,21]
+    function insert(ary){
+        let newary = [];
+        newary.push(ary[0]);
+        for(var i=1;i<ary.length;i++){
+        var cur = ary[i];
+        for(var j=newary.length-1;j>=0;j--){
+            if (cur>newary[j]){
+        newary.splice(j+1,0,cur);
+        break;
+            }  
+        if(j===0){
+            newary.unshift(cur)
+        }    
+        }
+    }return newary
+    }
+    console.log(insert(ary))
+    </script>
+</body>
+</html>
